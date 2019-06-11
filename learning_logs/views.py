@@ -68,10 +68,10 @@ def edit_entry(request, entry_id):
         form = EntryForm(instance=entry)
     else:
         # Отправлены данные POST, обработать данные
-        form = EntryForm(instance=intry, data = request.POST)
+        form = EntryForm(instance=entry, data = request.POST)
         if form.is_valid():
-            form.save
-            return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic_id]))
+            form.save()
+            return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic.id]))
 
     context = {'entry':entry, 'topic':topic, 'form':form}
     return render(request, 'learning_logs/edit_entry.html', context)
