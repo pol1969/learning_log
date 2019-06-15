@@ -1,3 +1,4 @@
 ll_env
 *.pyc
 learning_logs/__pycache__
+ll_log
